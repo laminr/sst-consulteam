@@ -1,0 +1,99 @@
+@bckgColorBody : #F1F0F0;
+@green: #28A140;
+@whiteBckg: #fafafa;
+@borderGrey : #D1D1D1;
+@orange : #1D9B55; // #FF4700;
+@orangeLight : #23D673; //#FF8500;
+@orangeVeryLight : #FFC5AE;
+@orangeDark : darken(@orange, 10%);
+// special pour IE
+a img {
+    border: none;
+}
+
+a {
+    &:link, &:visited, &:hover, &:active {
+        text-decoration : none; 
+        outline: 0;
+    }
+    &:focus {
+        outline: thin dotted #333;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+}
+.padded-right {padding-right: 10px;}
+.padded-left {padding-left: 10px; }    
+ul {list-style:none;}
+
+.center {
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.greenText{color:@green;}
+
+.linear (@start, @end, @ieStart, @ieEnd) {
+    background-image: -moz-linear-gradient(top,@start, @end);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@start), to(@end));
+    background-image: -webkit-linear-gradient(top, @start, @end);
+    background-image: -o-linear-gradient(top, @start,@end);
+    background-image: linear-gradient(to bottom, @start,@end);
+    background-repeat: repeat-x;
+              
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@ieStart, endColorstr=@ieEnd, GradientType=0);
+    *zoom: 1;
+}
+
+.linearBorder (@size, @start, @end, @ieStart, @ieEnd) {
+    border: @size solid -moz-linear-gradient(top,@start, @end);
+    border: @size solid -webkit-gradient(linear, 0 0, 0 100%, from(@start), to(@end));
+    border: @size solid -webkit-linear-gradient(top, @start, @end);
+    border: @size solid -o-linear-gradient(top, @start,@end);
+    border: @size solid linear-gradient(to bottom, @start,@end);
+              
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=@ieStart, endColorstr=@ieEnd, GradientType=0);
+    *zoom: 1;    
+}
+
+.round(@value: 5px) {
+
+  -webkit-border-radius: @value;
+     -moz-border-radius: @value;
+          border-radius: @value;
+
+      -ms-border-radius: @value;
+       -o-border-radius: @value;      
+}
+
+.textInset (@color:  #CE1D1D) {
+    text-shadow: 1px 1px 0px @color;
+}
+
+.Box {
+    background-color: @whiteBckg;      
+    .linear(#ffffff, #f2f2f2, '#ffffffff', '#fff2f2f2');
+    .round(4px);
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+       -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);    
+}
+
+.bullet(@size : 5px, @depth : 3px, @color: #b40000) {
+    display: inline-block;
+    height: @size;
+    width: @size;
+    border: @depth solid @color;
+    .round(@size);    
+}
+
+.shadow {
+    -moz-box-shadow: 0 0 15px #7A7A7A;
+    -webkit-box-shadow: 0 0 15px #7A7A7A;
+         box-shadow: 0 0 15px #7A7A7A;
+/*
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+*/
+}
